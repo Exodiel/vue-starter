@@ -4,18 +4,17 @@ import { ref } from 'vue'
 defineProps<{
   msg: string
 }>()
-
-const count = ref(0)
 const descriptions = ref('')
+const isVisible = ref(true)
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="isVisible = !isVisible">Toggle</button>
     <input type="text" v-model="descriptions">
-    <p>
+    <p v-show="isVisible">
       {{ descriptions }}
     </p>
   </div>
