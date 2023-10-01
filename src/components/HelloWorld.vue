@@ -6,6 +6,24 @@ defineProps<{
 }>()
 const descriptions = ref('')
 const isVisible = ref(true)
+const todos = [
+  {
+    id: '12387h-qweq',
+    todo: 'Todo 1'
+  },
+  {
+    id: '1qw3287h-qweq',
+    todo: 'Todo 2'
+  },
+  {
+    id: '12ssfq-2342a',
+    todo: 'Todo 3'
+  },
+  {
+    id: 'ppajih211-32adu23',
+    todo: 'Todo 4'
+  },
+]
 </script>
 
 <template>
@@ -17,6 +35,11 @@ const isVisible = ref(true)
     <p v-show="isVisible">
       {{ descriptions }}
     </p>
+    <ul>
+      <li v-for="todo in todos" :key="todo.id">
+        {{ todo.todo }}
+      </li>
+    </ul>
   </div>
 </template>
 
