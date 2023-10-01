@@ -6,24 +6,32 @@ defineProps<{
 }>()
 const descriptions = ref('')
 const isVisible = ref(true)
-const todos = [
+const newTask = ref('')
+const todos = ref([
   {
-    id: '12387h-qweq',
+    id: crypto.randomUUID(),
     todo: 'Todo 1'
   },
   {
-    id: '1qw3287h-qweq',
+    id: crypto.randomUUID(),
     todo: 'Todo 2'
   },
   {
-    id: '12ssfq-2342a',
+    id: crypto.randomUUID(),
     todo: 'Todo 3'
   },
   {
-    id: 'ppajih211-32adu23',
+    id: crypto.randomUUID(),
     todo: 'Todo 4'
   },
-]
+])
+const addTodo = () => {
+  todos.value.push({
+    id: crypto.randomUUID(),
+    todo: newTask.value
+  })
+  newTask.value = ''
+}
 </script>
 
 <template>
@@ -35,6 +43,7 @@ const todos = [
     <p v-show="isVisible">
       {{ descriptions }}
     </p>
+    <input type="text" v-model="newTask" @keyup.enter="addTodo">
     <ul>
       <li v-for="todo in todos" :key="todo.id">
         {{ todo.todo }}
