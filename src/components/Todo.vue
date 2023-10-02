@@ -1,6 +1,7 @@
 
 <template >
   <div>
+    {{ sizeTodos }}
     <input type="text" v-model="newTask" @keyup.enter="addTodo">
     <ul>
       <TodoItem
@@ -12,7 +13,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import TodoItem from './TodoItem.vue';
 const newTask = ref('')
 const todos = ref([
@@ -40,4 +41,5 @@ const addTodo = () => {
   })
   newTask.value = ''
 }
+const sizeTodos = computed(() => todos.value.length)
 </script>
