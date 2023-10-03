@@ -1,8 +1,7 @@
 <template>
   <h1>
-    User {{ $route.params }} {{ $route.query }}
+    Perfil del usuario
   </h1>
-  <router-view />
 </template>
 
 <script setup lang="ts">
