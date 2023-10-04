@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteLocationNormalized, RouteRecordSingleViewWithChildren } from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
-import User from './views/User.vue'
-import UserProfile from './views/UserProfile.vue'
-import UserConfig from './views/UserConfig.vue'
-import Login from './views/Login.vue'
+const Home = () => import('./views/Home.vue')
+const About = () => import('./views/About.vue')
+const User = () => import('./views/User.vue')
+const UserProfile = () => import('./views/UserProfile.vue')
+const UserConfig = () => import('./views/UserConfig.vue')
+const Login = () => import('./views/Login.vue')
 
 const beforeEnterHook = (to: RouteLocationNormalized) => {
   console.log("Paht", to.path)
