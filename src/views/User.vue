@@ -1,6 +1,6 @@
 <template>
   <h1>
-    User {{ $route.params }} {{ $route.query }}
+    User {{ route.params }} {{ route.query }}
   </h1>
   <router-link to="/users/jipson/profile">Go to profile</router-link>
   <br>
@@ -9,7 +9,9 @@
 </template>
 
 <script setup lang="ts">
+  import { useRoute } from 'vue-router'
 
+  const route = useRoute()
 </script>
 
 <style scoped>

@@ -1,5 +1,11 @@
 <script setup lang="ts">
+  import { useRouter } from 'vue-router'
 
+  const router = useRouter()
+
+  const goToURL = (url: string) => {
+    router.push(url)
+  }
 </script>
 
 <template>
@@ -15,6 +21,7 @@
     <router-link to="/">Go to Home</router-link>
     <router-link to="/login">Go to Login</router-link>
     <router-link to="/about">Go to About</router-link>
+    <button @click="goToURL('/users/jipson')">Go to User</button>
   </div>
   <router-view />
 </template>
