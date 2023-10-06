@@ -81,7 +81,22 @@ button:focus-visible {
 
 .flex {
   display: flex;
+  padding: 1rem;
+  align-items: center;
+  border-radius: 0.5rem;
 }
 .space-evenly {
   justify-content: space-evenly;
+}
+.space-between {
+  justify-content: space-between;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.done {
+  background-color: cadetblue;
 }

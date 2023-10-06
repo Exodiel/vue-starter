@@ -8,6 +8,7 @@
         v-for="todo in todos"
         :key="todo.id"
         :todo="todo"
+        :complete-todo="completeTodo"
       />
     </ul>
   </div>
@@ -19,26 +20,34 @@ import TodoForm from './TodoForm.vue';
 const todos = ref([
   {
     id: crypto.randomUUID(),
-    todo: 'Todo 1'
+    todo: 'Todo 1',
+    isComplete: false
   },
   {
     id: crypto.randomUUID(),
-    todo: 'Todo 2'
+    todo: 'Todo 2',
+    isComplete: false
   },
   {
     id: crypto.randomUUID(),
-    todo: 'Todo 3'
+    todo: 'Todo 3',
+    isComplete: false
   },
   {
     id: crypto.randomUUID(),
-    todo: 'Todo 4'
+    todo: 'Todo 4',
+    isComplete: false
   },
 ])
 const addTodo = ({ inputText }: { inputText: Ref<string> }) => {
   todos.value.push({
     id: crypto.randomUUID(),
-    todo: inputText.value
+    todo: inputText.value,
+    isComplete: false
   })
 }
 const sizeTodos = computed(() => todos.value.length)
+const completeTodo = (todo: { id: string; todo: string; isComplete: boolean }) => {
+  todo.isComplete = !todo.isComplete
+}
 </script>
