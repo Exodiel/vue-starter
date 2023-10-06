@@ -2,7 +2,7 @@
 <template >
   <div>
     {{ sizeTodos }}
-    <input type="text" v-model="newTask" @keyup.enter="addTodo">
+    <TodoForm @text-change="addTodo" />
     <ul>
       <TodoItem
         v-for="todo in todos"
@@ -13,9 +13,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, Ref } from 'vue'
 import TodoItem from './TodoItem.vue';
-const newTask = ref('')
+import TodoForm from './TodoForm.vue';
 const todos = ref([
   {
     id: crypto.randomUUID(),
@@ -34,12 +34,11 @@ const todos = ref([
     todo: 'Todo 4'
   },
 ])
-const addTodo = () => {
+const addTodo = ({ inputText }: { inputText: Ref<string> }) => {
   todos.value.push({
     id: crypto.randomUUID(),
-    todo: newTask.value
+    todo: inputText.value
   })
-  newTask.value = ''
 }
 const sizeTodos = computed(() => todos.value.length)
 </script>
