@@ -9,7 +9,7 @@
         :handle-click="completeTodo"
         :hide-on-complete="true"
       >
-        Complete Task
+        Complete Todo
       </TodoItemButton>
     </div>
   </li>
