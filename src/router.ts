@@ -55,6 +55,7 @@ const router = createRouter({
 })
 router.beforeEach((to, from, next) => {
   let isAuthenticated = true;
+  console.log({ from })
   if (to.name !== 'Login' && !isAuthenticated) {
     next({ name: 'Login' })
   } else {

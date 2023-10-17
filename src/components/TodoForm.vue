@@ -10,7 +10,7 @@
 
   const inputText = ref("")
   const addTodo = () => {
-    emit('textChange', { inputText })
+    emit('textChange', inputText.value)
     inputText.value = ""
   }
 </script>
